@@ -1,9 +1,12 @@
 /* Global ======================== */
 :root {
     --dark-blue: #363f5f;
-    --dark-green: #49aa26;
-    --light-green: #3dd705;
+    --bg: #2677aa;
+    --bg-secudary: #f0f2f5;
+    --light-green: #05d7b0;
     --red: #e92929;
+    --dark: #25262a;
+    --white: white;
 }
 
 * {
@@ -17,7 +20,7 @@ html {
 }
 
 body {
-    background: #f0f2f5;
+    background: var(--bg-secudary);
     font-family: 'Poppins', sans-serif;
 }
 
@@ -51,7 +54,7 @@ h2 {
 /* Links & Buttons ========================== */
 
 a {
-    color: var(--dark-green);
+    color: var(--bg);
     text-decoration: none;
 }
 
@@ -65,7 +68,7 @@ button {
 
     border: none;
     color: white;
-    background: var(--dark-green);
+    background: var(--bg);
 
     padding: 0;
 
@@ -104,15 +107,21 @@ button:hover {
 
 /* Header ========================== */
 header {
-    background: #2d4a22;
+    background: var(--bg);
     padding: 2rem 0 10rem;
     text-align: center;
+
 }
 
-#logo {
-    color: #fff;
-    font-weight: 100;
+.animation-logo img {
+    animation: logo-finance 0.5s normal;
 }
+
+/* Mains ========================== */
+main {
+    animation: main 1s linear;
+}
+
 
 /* Balance ============================= */
 #balance {
@@ -151,9 +160,51 @@ header {
 }
 
 .card.total {
-    background: var(--dark-green);
+    background: var(--bg);
     color: white;
 }
+
+/* Card function ============================= */
+
+#cards-function {
+    display: grid;
+    grid-template-columns: 1fr;
+    column-gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+#cards-function div {
+    background: white;
+    opacity: 0.6;
+}
+
+#cards-function div:hover {
+    transition: 1s;
+    box-shadow: 0 0.8rem 20px rgba(57, 57, 57, 0.143);
+    opacity: 1;
+}
+
+.card-function{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 4rem;
+    border-radius: 0.8rem;
+    margin-bottom: 1rem;
+} 
+
+i{
+    color: var(--bg);
+    font-size: 3rem;
+}
+
+.card-function span{
+    padding: 1rem 0 0 0;
+    font-weight: 400;
+}
+
+
+
 
 /* Table ============================= */
 
@@ -249,6 +300,38 @@ td.expense {
     padding: 2.4rem;
 }
 
+/* Modal notification ==================*/
+
+.modal-notification {
+    max-width: 350px;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    animation: notification 1s forwards reverse;
+}
+
+.modal-notification .modal {
+    padding: 0;
+    border-radius: 0 0 5px 5px;
+}
+
+.modal-notification.remove {
+    display: none;
+}
+
+.btn-cancel {
+    display: block;
+    width: 100%;
+    text-align: right;
+    padding-right: 10px;
+    background: #e9f0fb;
+}
+
+.modal-notification span {
+    display: block;
+    padding: 10px 5px 10px 5px;
+}
+
 /* Form ============================= */
 
 #form {
@@ -298,7 +381,7 @@ footer {
 
 /* Responsive ============================= */
 
-@media (min-width: 800px) {
+@media (min-width: 678px) {
     html {
         font-size: 87.5%; /* 14*/
     }
@@ -309,6 +392,12 @@ footer {
         grid-template-areas: "a a b b"
                              "c c c c";
         gap: 1rem;
+    }
+
+    #cards-function {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        row-gap: 1rem;
     }
 
     .income {
@@ -325,7 +414,7 @@ footer {
 
 }
 
-@media (min-width: 1000px) {
+@media (min-width: 1200px) {
     html {
         font-size: 87.5%; /* 14*/
     }
@@ -348,4 +437,12 @@ footer {
     #balance .total {
         grid-area: c;
     }
+
+    #cards-function {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 1fr;
+        row-gap: 1rem;
+    }
 }
+
+/* theme */

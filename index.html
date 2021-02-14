@@ -7,14 +7,19 @@
     <title>Dev.Finance$</title>
     <!-- Style -->
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./animation.css">
     <!-- Fonts poppins -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,400;0,700;1,100;1,400;1,700&display=swap" rel="stylesheet"> 
+
+    <!-- Font-awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
 </head>
 
 <body>
     <header>
         <a href="./index.html" id="logo"><img src="./assets/logo.svg" alt="logo Dev Finance"></a>
+        <a href="#" ondblclick="chargeColors(initialColors)" onclick="chargeColors(darkMode)" id="logo-money"><img src="./assets/logo-money.svg" alt="logo Dev Finance somente com cifrão"></a>
     </header>
 
     <main class="container">
@@ -42,11 +47,28 @@
                 <p id="totalDisplay">R$ 0,00</p>
             </div>
         </section>
+        <section id="function">
+            <h2 class="sr-only">Funcionalidades</h2>
+            <div id="cards-function">
+                <div class="card-function">
+                    <i class="far fa-credit-card" alt="Acessar o seus cartões"></i> 
+                    <span class="label">Seus Cartões</span>
+                </div>
+                <div class="card-function">
+                    <i class="fas fa-file-invoice-dollar"></i>
+                    <span class="label">Pagar suas Faturas</span>
+                </div>
+                <div class="card-function">
+                    <i class="fas fa-receipt"></i>
+                    <span class="label">Ver suas Faturas</span>
+                </div>
 
+            </div>
+        </section>
         <section id="transaction">
             <h2 class="sr-only">Transações</h2>
 
-            <a href="#" class="button new" onclick="Modal.openAndClose()">+ Nova transação</a>
+            <a href="#modal" class="button new" onclick="Modal.openAndClose()">+ Nova transação</a>
 
             <table id="data-table">
                 <thead>
@@ -106,8 +128,17 @@
             </div>
         </div>
     </div>
+    <div class="modal-notification">
+        <div class="modal">
+            <div class="actions">
+                <a href="#modal" class="btn-cancel" onclick="ModalNotification.Close()">X</a>
+                <span>Para ativar o "Modo Escuro" clica no $ da logo, e para desativar clica duas vezes</span>
+            </div>
+        </div>
+    </div>
 
     <script src="./script.js"></script>
+    <script src="./darkMode.js"></script>
     
     <footer>
         <p>dev.finance$</p>

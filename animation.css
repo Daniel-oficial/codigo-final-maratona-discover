@@ -1,0 +1,35 @@
+@keyframes main {
+    50% {
+        transform: translate(-10rem);
+        opacity: 0;
+    }
+    100% {
+        transform: translate(0);
+        opacity: 1;
+    }
+}
+
+@keyframes logo-finance {
+    25% {
+        transform: rotate(90deg);
+    }
+    50% {
+        transform: rotate(180deg);
+    }
+    75% {
+        transform: rotate(270deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes notification {
+    to {
+        opacity: 0;
+    }
+    form {
+        opacity: 1;
+    }
+}
+
